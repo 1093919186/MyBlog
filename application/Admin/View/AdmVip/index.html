@@ -1,0 +1,75 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BlogCMS</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="__ROOT__/public/CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="__ROOT__/public/CSS/Admin/adminindex.css">
+    <script src="__ROOT__/public/JS/jquery-2.1.1.min.js"></script>
+    <script src="__ROOT__/public/JS/bootstrap.min.js"></script>
+</head>
+<body>
+<include file="public:navTwo" />
+
+<!--content-->
+<div class="container" id="content">
+    <div class="row">
+        <!--left-->
+        <div class="col-md-3 col-sm-5">
+            <div class="list-group">
+                <a href="__APP__/AdmVip/index" class="list-group-item active" style="font-family: '微软雅黑', '黑体'">修改信息</a>
+                <a href="#" class="list-group-item" style="font-family: '微软雅黑', '黑体'">添加会员</a>                    <!--先不开发-->
+            </div>
+        </div>
+        <!--end-->
+        <!--右侧-->
+        <div class="col-md-9 col-sm-7">
+            <ul class="breadcrumb">
+                <li>BlogCMS</li>
+                <li style="font-family: '微软雅黑', '黑体'">会员管理</li>
+                <li class="active" style="font-family: '微软雅黑', '黑体'">修改信息</li>
+            </ul>
+            <form action="__APP__/AdmVip/update" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>UserName</label>
+                    <input class="form-control" value="{$admin.username}" style="font-family: '微软雅黑', '黑体'" name="userName">
+                </div>
+                <div class="form-group">
+                    <label>PassWord</label>
+                    <input class="form-control" value="{$admin.password}" style="font-family: '微软雅黑', '黑体'" name="passWord">
+                </div>
+                <div class="form-group">
+                    <label>IndexIcon</label>
+                    <input type="file" id="exampleInputFile" name="imgPath">
+                    <br>
+                    <label>IndexSign</label>
+                    <input class="form-control" value="{$admin.indexsign}" style="font-family: '微软雅黑', '黑体'" name="indexSign">
+                </div>
+                <div class="form-group">
+                    <label>Sex</label>
+                    <input class="form-control" value="{$admin.sex}" style="font-family: '微软雅黑', '黑体'" name="sex">
+                </div>
+                <div class="form-group">
+                    <label>School</label>
+                    <input class="form-control" value="{$admin.school}" style="font-family: '微软雅黑', '黑体'" name="school">
+                </div>
+                <div class="form-group">
+                    <label>WeChat</label>
+                    <input class="form-control" value="{$admin.wechat}" style="font-family: '微软雅黑', '黑体'" name="wechat">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input class="form-control" value="{$admin.email}" style="font-family: '微软雅黑', '黑体'" name="email">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!--end-->
+
+<include file="public:footer" />
+</body>
+</html>

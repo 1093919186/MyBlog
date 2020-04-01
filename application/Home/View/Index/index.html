@@ -1,0 +1,133 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>马西骑的博客</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="__ROOT__/public/CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="__ROOT__/public/CSS/Public.css">
+    <link rel="stylesheet" href="__ROOT__/public/CSS/PublicTwo.css">
+    <link rel="stylesheet" href="__ROOT__/public/CSS/index.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="__ROOT__/public/JS/jquery-2.1.1.min.js"></script>
+    <script src="__ROOT__/public/JS/bootstrap.min.js"></script>
+    <script src="__ROOT__/public/JS/Public.js"></script>
+</head>
+<body class="home-template">
+<!-- start header -->
+<header class="main-header"  style="background-image: url(__ROOT__/public/images/headerBJ.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <!-- start logo -->
+                <a class="branding" href="#" title="西骑一个帅气的boy"><img src="__ROOT__/{$self.imgpath}" alt=""></a>
+                <!-- end logo -->
+                <h2 class="mySign">{$self.indexsign}</h2>
+                <!--<img src="http://static.ghostchina.com/image/6/d1/fcb3879e14429d75833a461572e64.jpg" alt="Ghost 博客系统" class="hide">-->
+            </div>
+        </div>
+    </div>
+</header>
+<!-- end header -->
+
+<!-- start navigation -->
+<nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header">
+                        <span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-bars"></i>
+                        </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        <li class="nav-current" role="presentation"><a href="__APP__/Index/index.html">转载</a></li>
+                        <li  role="presentation"><a href="__APP__/Note/index.html">技术笔记</a></li>
+                        <li  role="presentation"><a href="__APP__/Diary/index.html">日记本</a></li>
+                        <li  role="presentation"><a href="__APP__/Album/index.html">相册</a></li>
+                        <li  role="presentation"><a href="__APP__/Resume/index.html">简历</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- end navigation -->
+
+<!-- start site's main content area -->
+<section class="content-wrap">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-8 main-content">
+
+                <foreach name="articles" item="v">
+
+                <article id={$v.articleid} class="post">
+                    <div class="post-head">
+                        <h1 class="post-title"><a href="__APP__/ContentDet/index/articleId/{$v.articleid}">{$v.title}</a></h1>
+                        <div class="post-meta">
+                            <span class="author">click：{$v.hints}</span> &bull;
+                            <span class="author">作者：<a href="{$v.link}">{$v.writer}</a></span> &bull;
+                            <time class="post-date" datetime="{$v.dateandtime}" title="{$v.dateandtime}">{$v.dateandtime}</time>
+                        </div>
+                    </div>
+                    <div class="featured-media">                    <!--此处注意-->
+                        <a href="__APP__/ContentDet/index/articleId/{$v.articleid}"><img src="__ROOT__/{$v.imgpath}" alt=""></a>
+                    </div>
+                    <div class="post-content featured-media">
+                        <p>{$v.header}</p>
+                    </div>
+                    <div class="post-permalink">
+                        <a href="__APP__/ContentDet/index/articleId/{$v.articleid}" class="btn btn-default">阅读全文</a>
+                    </div>
+
+                    <footer class="post-footer clearfix">
+                        <div class="pull-left tag-list">
+                            <i class="fa fa-folder-open-o"></i>
+                            <a href="{$v.link}">{$v.origin}</a>
+                        </div>
+                        <div class="pull-right share">
+                        </div>
+                    </footer>
+                </article>
+
+                </foreach>
+
+                <nav class="pagination" role="navigation">
+                    {$page}
+                </nav>
+
+
+            </main>
+
+            <aside class="col-md-4 sidebar">
+                <!-- start widget -->
+                <!-- end widget -->
+
+                <!-- start tag cloud widget -->
+                <div class="widget">
+                    <h4 class="title">IDCard</h4>
+                    <div class="content community">
+                        <p>sex：{$self.sex}</p>
+                        <p>school：{$self.school}</p>
+                        <p>weChat：{$self.wechat}</p>
+                        <p>email：{$self.email}</p>
+                        <!--                        <p><a href="http://wenda.ghostchina.com/" title="Ghost中文网问答社区" target="_blank" onclick="_hmt.push(['_trackEvent', 'big-button', 'click', '问答社区'])"><i class="fa fa-comments"></i> 问答社区</a></p>
+                                                <p><a href="http://weibo.com/ghostchinacom" title="Ghost中文网官方微博" target="_blank" onclick="_hmt.push(['_trackEvent', 'big-button', 'click', '官方微博'])"><i class="fa fa-weibo"></i> 官方微博</a></p>-->
+                    </div>
+                </div>
+                <!-- end tag cloud widget -->
+
+            </aside>
+
+        </div>
+    </div>
+</section>
+
+<include file="public:footer" />
+
+</body>
+</html>

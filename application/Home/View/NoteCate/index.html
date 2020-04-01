@@ -1,0 +1,121 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{$catename.catename}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="__ROOT__/public/CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="__ROOT__/public/CSS/Public.css">
+    <link rel="stylesheet" href="__ROOT__/public/CSS/PublicTwo.css">
+    <link rel="stylesheet" href="__ROOT__/public/CSS/Note.css">
+    <script src="__ROOT__/public/JS/jquery-2.1.1.min.js"></script>
+    <script src="__ROOT__/public/JS/bootstrap.min.js"></script>
+    <script src="__ROOT__/public/JS/Public.js"></script>
+</head>
+<body class="home-template">
+<!--nav-->
+<nav role="navigation" class="nav navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="__APP__/Index/index.html">Ma's Note</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mytab" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="mytab">
+            <ul class="nav navbar-nav">
+                <li><a href="__APP__/Index/index.html">转载</a></li>
+                <li class="active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">技术笔记<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+
+                        <foreach name="cate" item="v">
+
+                            <li><a href="__APP__/NoteCate/index/cateId/{$v.cateid}">{$v.catename}</a></li>
+
+                        </foreach>
+
+                    </ul>
+                </li>
+                <li><a href="__APP__/Diary/index.html">日记本</a></li>
+                <li><a href="__APP__/Album/index.html">相册</a></li>
+                <li><a href="__APP__/Resume/index.html">简历</a></li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search" action="__APP__/SearchNot/"  method="GET">
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder="请输入内容" name="keyword">
+                </div>
+                <button class="btn btn-default">搜索</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<!--end-->
+
+<!--main content-->
+<section class="content-wrap">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-8 main-content">
+
+                <foreach name="notes" item="v">
+
+                    <article id={$v.articleid} class="post">
+                        <div class="post-head">
+                            <h1 class="post-title"><a href="__APP__/ContentDet/index/articleId/{$v.articleid}">{$v.title}</a></h1>
+                            <div class="post-meta">
+                                <span class="author">click：{$v.hints}</span> &bull;
+                                <span class="author">作者：<a href="__APP__/SearchNot/index/keyword/{$v.writer}">{$v.writer}</a></span> &bull;
+                                <time class="post-date" datetime="{$v.dateandtime}" title="{$v.dateandtime}">{$v.dateandtime}</time>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <p>{$v.header}</p>
+                        </div>
+                        <div class="post-permalink">
+                            <a href="__APP__/ContentDet/index/articleId/{$v.articleid}" class="btn btn-default">阅读全文</a>
+                        </div>
+                    </article>
+
+                </foreach>
+
+                <nav class="pagination" role="navigation">
+                    {$page}
+                </nav>
+
+
+            </main>
+
+            <aside class="col-md-4 sidebar">
+                <!-- start widget -->
+                <!-- end widget -->
+
+                <!-- start tag cloud widget -->
+                <div class="widget">
+                    <h4 class="title">Recommend</h4>
+                    <div class="content community">
+
+                        <foreach name="recommand" item="v">
+
+                        <p><a href="__APP__/ContentDet/index/articleId/{$v.articleid}">{$v.title}</a></p>
+
+                        </foreach>
+
+                    </div>
+                </div>
+                <!-- end tag cloud widget -->
+
+            </aside>
+
+        </div>
+    </div>
+</section>
+<!--end-->
+
+<include file="public:footer" />
+</body>
+</html>

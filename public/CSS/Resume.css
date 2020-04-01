@@ -1,0 +1,111 @@
+body {
+    color: #505050;
+    line-height: 1.75em;
+    background: #ebebeb;
+    position: relative;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+}
+/*nav*/
+.navbar-header i {
+    height: 56px;
+    line-height: 56px;
+    font-size: 2em;
+    cursor: pointer;
+}
+@media (min-width: 768px) {
+    .nav-toggle-button {
+        display: none;
+    }
+}
+/*end*/
+/*content*/
+#content{
+    background-color: #ebebeb;
+    margin-bottom: 40px;
+}
+#container{
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    margin-top: 60px;
+    padding-top: 15px;
+}
+h1{
+    font-size: 30px;
+    font-family: Georgia;
+}
+h2{
+    font-family: '楷体', '微软雅黑';
+    font-size: 20px;
+}
+.text-center{
+    text-align: center;
+}
+#end{
+    border-top: 1px solid lightgrey;
+}
+
+#middle-part{
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+}
+#middle-part img{
+    width: 100%;
+    height: auto;
+}
+.text-margin{
+    margin: 15px 0 0 0;
+    font-size: 15px;
+    font-family:'楷体', '微软雅黑';
+}
+#tips-style{
+    font-family:Times;
+}
+#tips-style t{
+    font-family: "微软雅黑", "黑体";
+    font-size: 16px;
+}
+
+.sentence-style{
+    font-family: Cursive;
+    font-size: 25px;
+
+}
+.sign-style{
+    font-style:oblique;
+    margin-left: 330px;
+    color: #777777;
+
+}
+.text-advices{
+    font-size: 30px;
+}
+@media (max-width: 768px) {
+    h1{
+        font-size: 25px;
+    }
+    h2{
+        font-size: 15px;
+    }
+    #container{
+        padding-top: 1px;
+    }
+    .text-margin{
+        margin: 5px 0 0 0;
+        font-size: 10px;
+        font-family:'楷体', '微软雅黑';
+    }
+}
+/*end*/
+
+/*返回顶部*/
+.小图标{
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+    border-radius: 10%;
+}

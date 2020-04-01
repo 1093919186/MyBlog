@@ -1,0 +1,70 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BlogCMS</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="__ROOT__/public/CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="__ROOT__/public/CSS/Admin/adminindex.css">
+    <script src="__ROOT__/public/JS/jquery-2.1.1.min.js"></script>
+    <script src="__ROOT__/public/JS/bootstrap.min.js"></script>
+</head>
+<body>
+
+<include file="public:navThree" />
+
+<!--content-->
+<div class="container" id="content">
+    <div class="row">
+        <!--left-->
+        <div class="col-md-3 col-sm-5">
+            <div class="list-group">
+                <a href="__APP__/AddContent/index" class="list-group-item" style="font-family: '微软雅黑', '黑体'">发布内容</a>
+                <a href="__APP__/TakeDiary/index" class="list-group-item" style="font-family: '微软雅黑', '黑体'">记日记</a>
+                <a href="__APP__/AdmCate/index" class="list-group-item active" style="font-family: '微软雅黑', '黑体'">类目管理</a>
+                <a href="__APP__/AddCate/index" class="list-group-item" style="font-family: '微软雅黑', '黑体'">增加类目</a>
+            </div>
+        </div>
+        <!--end-->
+        <!--右侧-->
+        <div class="col-md-9 col-sm-7">
+            <ul class="breadcrumb">
+                <li>BlogCMS</li>
+                <li style="font-family: '微软雅黑', '黑体'">会员管理</li>
+                <li class="active" style="font-family: '微软雅黑', '黑体'">类目管理</li>
+            </ul>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Num</th>
+                        <th>Operate</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <foreach name="cate" item="v">
+
+                    <tr>
+                        <td style="font-family: '微软雅黑', '黑体'">{$v.catename}</td>
+                        <td style="font-family: '微软雅黑', '黑体'">{$v.articlenums}</td>
+                        <td><a href="__APP__/ChangeCate/index/cateId/{$v.cateid}" style="font-family: '微软雅黑', '黑体'">修改</a>
+                            <a href="__APP__/AdmCate/del/cateId/{$v.cateid}" style="font-family: '微软雅黑', '黑体';color: red;margin-left: 20px">删除</a></td>
+                    </tr>
+
+                    </foreach>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--end-->
+
+<include file="public:footer" />
+</body>
+</html>

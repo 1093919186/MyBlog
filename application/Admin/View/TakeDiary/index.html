@@ -1,0 +1,66 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BlogCMS</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="__ROOT__/public/CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="__ROOT__/public/CSS/Admin/adminindex.css">
+    <script src="__ROOT__/public/JS/jquery-2.1.1.min.js"></script>
+    <script src="__ROOT__/public/JS/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="__ROOT__/library/trumbowyg/design/css/trumbowyg.css">
+    <style type="text/css">
+        header {
+            text-align: center;
+        }
+        #main {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<include file="public:navThree" />
+
+<!--content-->
+<div class="container" id="content">
+    <div class="row">
+        <!--left-->
+        <div class="col-md-3 col-sm-5">
+            <div class="list-group">
+                <a href="__APP__/AddContent/index" class="list-group-item" style="font-family: '微软雅黑', '黑体'">发布内容</a>
+                <a href="__APP__/TakeDiary/index" class="list-group-item active" style="font-family: '微软雅黑', '黑体'">记日记</a>
+                <a href="__APP__/AdmCate/index" class="list-group-item" style="font-family: '微软雅黑', '黑体'">类目管理</a>
+                <a href="__APP__/AddCate/index" class="list-group-item" style="font-family: '微软雅黑', '黑体'">增加类目</a>
+            </div>
+        </div>
+        <!--end-->
+        <!--右侧-->
+        <div class="col-md-9 col-sm-7">
+            <ul class="breadcrumb">
+                <li>BlogCMS</li>
+                <li style="font-family: '微软雅黑', '黑体'">发布内容</li>
+                <li class="active" style="font-family: '微软雅黑', '黑体'">记日记</li>
+            </ul>
+            <form action="__APP__/TakeDiary/takedia" method="post">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input class="form-control" placeholder="请输入标题" style="font-family: '微软雅黑', '黑体'" name="title">
+                </div>
+                <div id="main" role="main">
+                    <label>Diary</label>
+                    <div id="simple-editor" style="font-family: '微软雅黑', '黑体'">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!--end-->
+
+<include file="public:trumbowyg" />
+<include file="public:footer" />
+</body>
+</html>
